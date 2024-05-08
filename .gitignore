@@ -2,4 +2,8 @@
 Scripts
 Lib
 pyvenv.cfg
-
+__pycache__
+.pytest_cache
+.idea
+tests/__pycache__
+edpoints/__pycache__
