@@ -49,3 +49,8 @@ class TestDataCreateOrder:
     }
 
     LST_ORDERS = [ORDER_BLACK_COLOR, ORDER_GREY_COLOR, ORDER_WITHOUT_COLORS, ORDER_TWO_COLORS]
+
+    ANSWER_400 = "Недостаточно данных для создания учетной записи"
+    ANSWER_409 = "Этот логин уже используется. Попробуйте другой."
+    ANSWER_AUTH_404 = "Учетная запись не найдена"
+    ANSWER_AUTH_400 = "Недостаточно данных для входа"

@@ -10,24 +10,21 @@ from edpoints.create_order import CreateOrder
 @allure.step("Создание курьера")
 @pytest.fixture(scope='function')
 def new_courier():
-    new_courier = CreateCourier
-    yield new_courier
-    id = new_courier.courier_return_id
-    new_courier.delete_courier(id)
+    new_courier = CreateCourier()
+    return new_courier
 
 
-@allure.step("Авторизация курьера и удаление его по завершении")
+@allure.step("Авторизация курьера")
 @pytest.fixture(scope='function')
 def auth_courier():
-    courier = Auth
-    yield courier
-    id = courier.courier_return_id
-    courier.delete_courier(id)
+    courier = Auth()
+    return courier
 
 
 @allure.step("Создание заказа")
 @pytest.fixture(scope='function')
 def new_order():
-    new_order = CreateOrder
+    new_order = CreateOrder()
     return new_order
+
 
