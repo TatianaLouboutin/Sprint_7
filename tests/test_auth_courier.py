@@ -7,8 +7,9 @@ import data
 class TestAuthCourier:
     @allure.title("Проверка успешной авторизации курьера")
     @allure.description("Проверка 200 кода и полученное id - число")
-    def test_auth_courier(self, auth_courier):
-        response = auth_courier.auth_courier()
+    def test_auth_courier(self, payload_auth):
+        auth_courier = Auth()
+        response = auth_courier.auth_courier(payload_auth)
         assert response.status_code== 200 and type(response.json()["id"]) == int
 
     @allure.title("Проверка авторизации курьера с пустым логином")

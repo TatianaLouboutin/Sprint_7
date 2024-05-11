@@ -12,9 +12,6 @@ class CreateOrder:
     def create_order(self, order):
         response = requests.post(urls.BASE_URL + urls.CREATE_ORDER_ENDPOINT, data=order)
         return response
-        id = response.json()["track"]
-        payload = {"track": id}
-        response = requests.put(urls.BASE_URL + urls.CANCEL_ORDER_ENDPOINT, data=payload)
 
 
 
