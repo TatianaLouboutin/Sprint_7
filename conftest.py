@@ -7,7 +7,7 @@ from edpoints.auth_courier import Auth
 from edpoints.create_order import CreateOrder
 
 
-@allure.step("Создание объекта CreateCourier")
+@allure.step("Создание объекта CreateCourier") # Вызывается в тестах проверки создания курьера с пустым логином и паролем
 @pytest.fixture(scope='function')
 def new_courier():
     new_courier = CreateCourier()

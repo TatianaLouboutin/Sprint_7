@@ -8,11 +8,10 @@ import urls
 
 class CreateOrder:
 
-    @allure.step('Создаем новый заказ, возвращаем POST запрос, отменяем запрос')
+    @allure.step('Создаем новый заказ, возвращаем POST запрос')
     def create_order(self, order):
         response = requests.post(urls.BASE_URL + urls.CREATE_ORDER_ENDPOINT, data=order)
         return response
-
 
 
     @allure.step('Запрашиваем список заказов, возвращаем GET запрос')

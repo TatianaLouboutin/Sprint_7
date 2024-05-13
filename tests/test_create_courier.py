@@ -16,21 +16,21 @@ class TestCreateCourier:
     @allure.description("Проверка 400 кода и ответа 'Недостаточно данных для создания учетной записи'")
     def test_create_courier_with_empty_login(self, new_courier):
         payload = { "login": "", "password": "assembler", "firstName": "Ivan"}
-        response = new_courier.create_courier_with_empty_field(payload)
+        response = new_courier.create_courier(payload)
         assert response.status_code == 400 and response.json()["message"] == data.TestDataCreateOrder.ANSWER_400
 
     @allure.title("Проверка регистрации курьера с пустым паролем")
     @allure.description("Проверка 400 кода и ответа 'Недостаточно данных для создания учетной записи'")
     def test_create_courier_with_empty_pass(self, new_courier):
         payload = {"login": "assembler", "password": "", "firstName": "Ivan"}
-        response = new_courier.create_courier_with_empty_field(payload)
+        response = new_courier.create_courier(payload)
         assert response.status_code == 400 and response.json()["message"] == data.TestDataCreateOrder.ANSWER_400
 
     @allure.title("Проверка регистрации курьера с пустым именем")
     @allure.description("Проверка 201 кода и ответа 'ok' == True")
     def test_create_courier_with_empty_first_name(self, payload_with_empty_firstname):
         new_courier = CreateCourier()
-        response = new_courier.create_courier_with_empty_first_name(payload_with_empty_firstname)
+        response = new_courier.create_courier(payload_with_empty_firstname)
         assert response.status_code == 201 and response.json()["ok"] == True
 
     @allure.title("Проверка невозможности регистрации одного и того же курьера второй раз")

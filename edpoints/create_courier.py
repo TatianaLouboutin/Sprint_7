@@ -26,24 +26,13 @@ class CreateCourier:
 
         return payload
 
-    @allure.step('Создаем нового курьера с пустым логином или паролем, возвращаем POST запрос')
-    def create_courier_with_empty_field(self, payload):
-        return requests.post(urls.BASE_URL + urls.CREATE_COURIER_ENDPOINT, data=payload)
 
-
-    @allure.step('Создаем нового курьера, возвращаем POST запрос, удаляем курьера')
+    @allure.step('Создаем нового курьера любым payload, возвращаем POST запрос')
     def create_courier(self, payload):
         return requests.post(urls.BASE_URL + urls.CREATE_COURIER_ENDPOINT, data=payload)
 
 
-
-    @allure.step('Создаем нового курьера с пустым именем, возвращаем POST запрос')
-    def create_courier_with_empty_first_name(self, payload_with_empty_firstname):
-        return requests.post(urls.BASE_URL + urls.CREATE_COURIER_ENDPOINT, data=payload_with_empty_firstname)
-
-
-
-    @allure.step('Создаем одного и того же курьера второй раз, возвращаем POST запрос, удаляем курьера')
+    @allure.step('Создаем одного и того же курьера второй раз, возвращаем POST запрос')
     def register_the_same_courier(self, payload):
         response = requests.post(urls.BASE_URL + urls.CREATE_COURIER_ENDPOINT, data=payload)
 

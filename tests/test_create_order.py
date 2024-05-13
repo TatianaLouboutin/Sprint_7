@@ -12,10 +12,7 @@ class TestCreateOrder:
     def test_create_order(self, new_order, order):
         response = new_order.create_order(order)
         assert response.status_code == 201 and type(response.json()["track"]) == int
-        id = response.json()["track"]
-        payload = {"track": id }
-        response = requests.put(urls.BASE_URL + urls.CANCEL_ORDER_ENDPOINT, data=payload)
-        assert response.status_code == 400 and response.json()["message"] == "Недостаточно данных для поиска"
+
 
     @allure.title("Проверка успешного возвращения списка заказов")
     @allure.description("Проверка возвращения списка, список не пустой")
